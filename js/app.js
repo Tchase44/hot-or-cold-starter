@@ -28,15 +28,33 @@ $('input#guessButton').click(function(event){
 	$('span#count').text(numberOfGuesses);
 	var userNumber = document.getElementById('userGuess').value;
 	var userGuess = parseInt(userNumber);
-  		if(userGuess > solution) {
-  			// userFeedback = 'Too High';
-  			$('h2#feedback').text('Too High');
-		} else if (userGuess < solution) {
-			// userFeedback = 'Too Low';
-			$('h2#feedback').text('Too Low');
-		} else {
-			// userFeedback = 'Correct! New Game?';
+  		if(userGuess > solution+40||userGuess < solution-40) {
+  		// userFeedback = 'Too High';
+  			$('h2#feedback').text('Way cold Sir!');
+		} else if (userGuess > solution + 20) {
+		// userFeedback = 'Too Low';
+			$('h2#feedback').text('Just cold now');
+		}else if (userGuess < solution - 20) {
+		// 
+			$('h2#feedback').text('Just cold now');
+		// 
+		} else if (userGuess > solution + 7) {
+			$('h2#feedback').text('Getting warm');
+		//
+		}else if (userGuess < solution - 7) {
+			$('h2#feedback').text('Getting warm');
+		// 
+		} else if (userGuess >= solution + 2) {
+			$('h2#feedback').text('HOT!!!');
+		// 
+		}else if (userGuess <= solution - 2) {
+			$('h2#feedback').text('HOT!!!');
+		// 
+		} else if (userGuess === solution) {
+		// userFeedback = 'Correct! New Game?';
 			$('h2#feedback').text('Correct!!! New Game?')
+		} else {
+			$('h2#feedback').text("So Close!!");
 		};
 	// user no. guessed list
 	var noList = "<li class='guessBox'>"+userGuess+"</li>";
